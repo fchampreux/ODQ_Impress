@@ -76,8 +76,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
-    <link href="css/ODQ-impress.css" rel="stylesheet" />
+    <link href="../impress.js/css/impress-demo.css" rel="stylesheet" />
     <link href="../impress.js/css/impress-common.css" rel="stylesheet" />
+    <link href="stylesheets/ODQ-impress.css" rel="stylesheet" />
 
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -101,10 +102,19 @@
 
     data-autoplay="7">
 
-    <div id="welcome" class="step" data-x="-1000" data-y="-1500" data-autoplay="10">
-        <H1> Open Data Quality </h1>
+    <div id="welcome" class="step title" data-x="-1000" data-y="-1500" data-autoplay="10">
+        <h1 class="highlighted"> Open Data Quality </h1>
+          <br/>
         <h2> Frédéric Champreux </h2>
-        <h3> 2 mars 2022 </h3>
+        <h3 id="today"> </h3>
+        <script>
+          document.addEventListener("DOMContentLoaded", function(event) {
+              var d = new Date();
+              var presentationDate = d.toLocaleDateString();
+              document.getElementById("today").innerHTML = "Date: " + presentationDate;
+              console.log ("Date: " + presentationDate);
+            });
+        </script>
     </div>
 
     <div id="client_intro" class="step" data-x="-2000" data-y="-1500" data-autoplay="10">
