@@ -229,8 +229,16 @@ a:focus {
     margin-top: 0px;
 }
 
-.footer {
+.column-header {
+    font-weight: bold;
+}
 
+.column-content {
+    padding-left: 30px;
+}
+
+.footer {
+  width: 950px;
 }
 
 .title {
@@ -241,6 +249,21 @@ a:focus {
     text-align: center;
 }
 
+.subtitle {
+    display: block;
+    font-size: 30px;
+    line-height: 50px;
+    margin-top: 70px;
+    text-align: center;
+}
+
+.slide-content {
+    display: block;
+    font-size: 30px;
+    line-height: 50px;
+    margin-top: 70px;
+    text-align: left;
+}
 .highlighted {
     color: #227867;
     font-weight: bold;
@@ -258,6 +281,15 @@ a:focus {
   width: 30%;
   height: 30%;
   margin-left: 300px;
+}
+
+q {
+  display: block;
+  font-size: 50px;
+  line-height: 72px;
+  margin-top: 100px;
+  text-align: left;
+  color: #1e73be;
 }
 
 h1 {
