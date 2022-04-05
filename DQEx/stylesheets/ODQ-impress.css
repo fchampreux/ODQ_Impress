@@ -229,12 +229,22 @@ a:focus {
     margin-top: 0px;
 }
 
+.banner {
+    display: block;
+    font-size: 100px;
+    line-height: 100px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #227867;
+}
+
 .column-header {
     font-weight: bold;
 }
 
 .column-content {
-    padding-left: 30px;
+    padding-left: 50px;
 }
 
 .footer {
@@ -253,7 +263,7 @@ a:focus {
     display: block;
     font-size: 30px;
     line-height: 50px;
-    margin-top: 70px;
+    margin-top: 150px;
     text-align: center;
 }
 
@@ -261,7 +271,7 @@ a:focus {
     display: block;
     font-size: 30px;
     line-height: 50px;
-    margin-top: 70px;
+    margin-top: 50px;
     text-align: left;
 }
 .highlighted {
@@ -283,11 +293,24 @@ a:focus {
   margin-left: 300px;
 }
 
+.illustration {
+  vertical-align: text-top;
+}
+
+.demo {
+    display: block;
+    font-size: 40px;
+    line-height: 50px;
+    margin-top: 50px;
+    padding-left: 10px;
+    text-align: center;
+}
+
 q {
   display: block;
   font-size: 50px;
   line-height: 72px;
-  margin-top: 100px;
+  margin-top: 50px;
   text-align: left;
   color: #1e73be;
 }
