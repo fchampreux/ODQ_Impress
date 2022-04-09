@@ -99,7 +99,7 @@
     data-min-scale="0"
     data-perspective="1000"
 
-    data-autoplay="7">
+    data-autoplay="15">
 
     <div id="welcome" class="step title" data-x="0" data-y="0" data-autoplay="10">
         <h1 class="highlighted"> Open Data Quality </h1>
@@ -126,7 +126,7 @@
         <img src="images/customer.png">
     </div>
 
-    <div id="agenda" class="step" data-x="-4000" data-y="0" data-autoplay="10">
+    <div id="agenda" class="step" data-x="-4000" data-y="0" data-autoplay="20">
         <h1 class="header">
           Agenda
           <hr/>
@@ -134,9 +134,9 @@
         <br/>
         <ol start="1">
           <li class="highlighted"> 1. Open Data Quality </li>
-          <li> 2. Exemples de cas d’affaires </li>
-          <li> 3. Votre capital de données </li>
-          <li> 4. Notre proposition de valeur </li>
+          <li class="fade-in fade-out" style="transition-delay: 5s"> 2. Exemples de cas d’affaires </li>
+          <li class="fade-in fade-out" style="transition-delay: 10s"> 3. Votre capital de données </li>
+          <li class="fade-in fade-out" style="transition-delay: 15s"> 4. Notre proposition de valeur </li>
         </ol>
         <br/>
         <table width="950px">
@@ -196,7 +196,7 @@
       </h1>
       <div class="slide-content">
         <p class="title"> Vos données ont de la valeur ! </p>
-        <p class="subtitle"> ( pour autant qu’elles soient de bonne qualité … ) </p>
+        <p class="subtitle fade-in fade-out" style="transition-delay: 8s"> ( pour autant qu’elles soient de bonne qualité … ) </p>
         <br/>
         <br/>
       </div>
@@ -330,7 +330,7 @@
       </h1>
       <div class="slide-content">
         <p class="title"> Les informations sur votre capital : </p>
-        <p class="banner"> Les métadonnées </p>
+        <p class="banner fade-in fade-out" style="transition-delay: 1s"> Les métadonnées </p>
         <br/>
         <br/>
       </div>
@@ -358,11 +358,12 @@
         </table>
         <br/>
         <br/>
-        <p class="demo"> Vous calculez la valeur propre de votre actif </p>
+        <p class="demo fly-in fly-out" style="transition-delay: 6s"> Vous calculez la valeur propre de votre actif </p>
         <br/>
       </div>
       <div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"
+             class="fade-in fade-out" style="transition-delay: 2s">
           <defs>
             <marker id="arrowhead" markerWidth="10" markerHeight="7"
             refX="0" refY="3.5" orient="auto">
@@ -372,7 +373,8 @@
         <line x1="58" y1="125" x2="118" y2="163" stroke="#000"
         stroke-width="1" marker-end="url(#arrowhead)" />
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"
+             class="fade-in fade-out" style="transition-delay: 4s">
           <defs>
             <marker id="arrowhead" markerWidth="10" markerHeight="7"
             refX="0" refY="3.5" orient="auto">
@@ -382,7 +384,8 @@
         <line x1="145" y1="125" x2="145" y2="158" stroke="#000"
         stroke-width="1" marker-end="url(#arrowhead)" />
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"
+             class="fade-in fade-out" style="transition-delay: 6s">
           <defs>
             <marker id="arrowhead" markerWidth="10" markerHeight="7"
             refX="0" refY="3.5" orient="auto">
@@ -418,11 +421,12 @@
         <br/>
         <br/>
         <br/>
-        <p class="demo"> Vous accroissez la valeur de vos données</p>
+        <p class="demo fly-in fly-out" style="transition-delay: 6s"> Vous accroissez la valeur de vos données</p>
         <br/>
       </div>
       <div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"
+            class="fade-in fade-out" style="transition-delay: 2s">
           <defs>
             <marker id="arrowhead" markerWidth="10" markerHeight="7"
             refX="0" refY="3.5" orient="auto">
@@ -432,7 +436,8 @@
         <line x1="58" y1="125" x2="118" y2="163" stroke="#000"
         stroke-width="1" marker-end="url(#arrowhead)" />
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"
+             class="fade-in fade-out" style="transition-delay: 4s">
           <defs>
             <marker id="arrowhead" markerWidth="10" markerHeight="7"
             refX="0" refY="3.5" orient="auto">
@@ -442,7 +447,8 @@
         <line x1="145" y1="125" x2="145" y2="158" stroke="#000"
         stroke-width="1" marker-end="url(#arrowhead)" />
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"
+             class="fade-in fade-out" style="transition-delay: 6s">
           <defs>
             <marker id="arrowhead" markerWidth="10" markerHeight="7"
             refX="0" refY="3.5" orient="auto">
@@ -478,11 +484,12 @@
         <br/>
         <br/>
         <br/>
-        <p class="demo"> Vous pilotez vos données ! </p>
+        <p class="demo fly-in fly-out" style="transition-delay: 6s"> Vous pilotez vos données ! </p>
         <br/>
       </div>
       <div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"
+             class="fade-in fade-out" style="transition-delay: 2s">
           <defs>
             <marker id="arrowhead" markerWidth="10" markerHeight="7"
             refX="0" refY="3.5" orient="auto">
@@ -492,7 +499,8 @@
         <line x1="58" y1="125" x2="118" y2="163" stroke="#000"
         stroke-width="1" marker-end="url(#arrowhead)" />
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"
+             class="fade-in fade-out" style="transition-delay: 4s">
           <defs>
             <marker id="arrowhead" markerWidth="10" markerHeight="7"
             refX="0" refY="3.5" orient="auto">
@@ -502,7 +510,8 @@
         <line x1="145" y1="125" x2="145" y2="158" stroke="#000"
         stroke-width="1" marker-end="url(#arrowhead)" />
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"
+             class="fade-in fade-out" style="transition-delay: 6s">
           <defs>
             <marker id="arrowhead" markerWidth="10" markerHeight="7"
             refX="0" refY="3.5" orient="auto">
@@ -522,31 +531,31 @@
       </table>
     </div>
 
-    <div id="how4" class="step" data-x="-26000" data-y="0" data-autoplay="10">
+    <div id="how4" class="step" data-x="-26000" data-y="0" data-autoplay="20">
       <h1 class="header">
         3.5 Piloter votre capital
         <hr/>
       </h1>
       <div class="slide-content">
         <table>
-          <tr class="matching">
+          <tr class="matching fade-in fade-out" style="transition-delay: 1s">
             <td width="40%"> Décrire votre capital </td>
             <td> <img src="images/library/match.png">  </td>
             <td> Produire des métadonnées validées et harmonisées </td>
           </tr>
-          <tr class="matching">
+          <tr class="matching fade-in fade-out" style="transition-delay: 4s">
             <td width="40%"> Valoriser votre capital </td>
             <td> <img src="images/library/match.png"> </td>
             <td> Estimer la valeur ajoutée et
             vérifier la conformité des données </td>
           </tr>
-          <tr class="matching">
+          <tr class="matching fade-in fade-out" style="transition-delay: 7s">
             <td width="40%"> Développer votre capital </td>
             <td> <img src="images/library/match.png"> </td>
             <td> Réutiliser et croiser les données,
             produire de l'information </td>
           </tr>
-          <tr class="matching">
+          <tr class="matching fade-in fade-out" style="transition-delay: 10s">
             <td width="40%"> Gouverner votre capital </td>
             <td> <img src="images/library/match.png"> </td>
             <td> Définir vos objectifs et produire les
@@ -599,10 +608,10 @@
             <td class="enum">
               <p> Notre logiciel open source en 4 points : </p>
               <ul>
-                <li> 1. Base de connaissance </li>
-                <li> 2. Validation des données  </li>
-                <li> 3. Indicateurs clés et valorisation </li>
-                <li> 4. Processus de gouvernance </li>
+                <li class="fade-in fade-out" style="transition-delay: 1s"> 1. Base de connaissance </li>
+                <li class="fade-in fade-out" style="transition-delay: 2s"> 2. Validation des données  </li>
+                <li class="fade-in fade-out" style="transition-delay: 3s"> 3. Indicateurs clés et valorisation </li>
+                <li class="fade-in fade-out" style="transition-delay: 4s"> 4. Processus de gouvernance </li>
               </ul>
             </td>
           </tr>
@@ -638,7 +647,7 @@
       </table>
     </div>
 
-    <div id="what3" class="step" data-x="-34000" data-y="0" data-autoplay="10">
+    <div id="what3" class="step" data-x="-34000" data-y="0" data-autoplay="20">
       <h1 class="header">
         4.4 Vous accompagner
         <hr/>
@@ -647,10 +656,10 @@
         <q class="demo"> Nous vous accompagnons dans la constitution, la valorisation
             et la croissance de votre capital de données. </q>
         <ul class="enum padd">
-          <li> 1. Etude de la situation et définition des objectifs </li>
-          <li> 2. Implication et formation des acteurs </li>
-          <li> 3. Implémentation : indicateurs clés et valorisation </li>
-          <li> 4. Libération du processus de gouvernance </li>
+          <li class="fade-in fade-out" style="transition-delay: 1s"> 1. Etude de la situation et définition des objectifs </li>
+          <li class="fade-in fade-out" style="transition-delay: 4s"> 2. Implication et formation des acteurs </li>
+          <li class="fade-in fade-out" style="transition-delay: 7s"> 3. Implémentation : indicateurs clés et valorisation </li>
+          <li class="fade-in fade-out" style="transition-delay: 10s"> 4. Libération du processus de gouvernance </li>
         </ul>
         <br/>
       </div>
