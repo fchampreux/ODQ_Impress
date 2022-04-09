@@ -321,6 +321,13 @@ hr {
     border-color: #227867;
 }
 
+svg {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 10;
+}
+
 /* Impress demo animation */
 #overview { display: none }
 
