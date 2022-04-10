@@ -177,9 +177,15 @@ a:focus {
 
 .impress-enabled .step.active { opacity: 1 }
 
+/* Special fonts */
+@font-face {
+    font-family: URWGothic;
+    src: url(/fonts/URWGothicBook.ttf);
+}
+
 /* Presentation styles */
 .header {
-    color: #227867;
+    color: #217867;
     margin-top: 0px;
 }
 
@@ -190,7 +196,7 @@ a:focus {
     margin-top: 80px;
     margin-bottom: 40px;
     text-align: center;
-    color: #227867;
+    color: #217867;
 }
 
 .column-header {
@@ -230,12 +236,12 @@ a:focus {
 }
 
 .highlighted {
-    color: #227867;
+    color: #217867;
     font-weight: bold;
 }
 
 .page-nb {
-  color: #227867;
+  color: #217867;
   font-size: 20px;
   font-weight: normal;
   text-align: center;
@@ -295,7 +301,7 @@ q {
   line-height: 72px;
   margin-top: 50px;
   text-align: left;
-  color: #1e73be;
+  color: #4f81bd;
 }
 
 h1 {
@@ -318,7 +324,7 @@ h3 {
 
 hr {
     border: 2px solid;
-    border-color: #227867;
+    border-color: #217867;
 }
 
 svg {

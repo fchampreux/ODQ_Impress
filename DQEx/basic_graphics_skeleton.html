@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<title>Basic Graphics Skeleton</title>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script>
+
+function refresh(dc,width,height) {
+ 
+  // PUT YOUR GRAPHICS CODE IN HERE...
+  dc.fillStyle='#000';
+  dc.beginPath();
+  var cx = width/2;
+  var cy = height/2;
+  var rad = width*.45;
+  
+  dc.arc(cx, cy, rad, 0,2*Math.PI, false);
+  dc.fill();
+
+}
+
+
+$().ready(function() {
+      var canv = document.getElementById("canv");
+      canv.width = 200;
+      canv.height = 200;
+      var dc = canv.getContext('2d');
+      var w = 200;
+      var h = 200;
+      refresh(dc,w,h,0);});
+
+</script>
+<style>
+body,div,p { font-family: futura,gotham,arial,helvetica,sans-serif; }
+h1 { text-align: center; } 
+canvas.cframe { border: 1px solid #444; }
+div.ex { text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="outercontainer">
+<h1>Basic Graphics Skeleton</h1>
+
+<div class="ex">
+<canvas class="cframe" id="canv" />
+</div>
+
+</div>
+</body>
+</html>

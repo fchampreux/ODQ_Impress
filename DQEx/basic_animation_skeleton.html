@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html>
+<title>Basic Animation Skeleton</title>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script>
+
+function refresh(dc,width,height,frame_number) {
+  // PUT YOUR GRAPHICS CODE HERE....
+
+  dc.clearRect(0,0,width,height);
+
+  
+  dc.fillStyle='#000';
+  var nbr_circles = 20;
+  
+  var angle_incr = 2*Math.PI / nbr_circles;
+  
+  var cx = width/2;
+  var cy = height/2;
+  var outer_rad = width*.45;
+  
+  var sm_rad = 2;
+  var offset = frame_number * .1;
+  
+  for (var i = 1; i <= nbr_circles; ++i) {
+    var ratio = i/nbr_circles;
+    var angle = i*angle_incr + offset;
+    var spiral_rad = ratio * outer_rad;
+    var x = cx + Math.cos(angle) * spiral_rad;
+    var y = cy + Math.sin(angle) * spiral_rad;
+  
+    // draw tiny circle at x,y
+    dc.beginPath();
+    dc.arc(x, y, sm_rad, 0, 2*Math.PI, false);
+    dc.fill();
+  }
+   
+
+}
+
+function drawPlayButton(dc, w,h, state)
+{
+  var bw = 16;
+  dc.save();
+    dc.translate(4, h-(bw+4));
+    dc.strokeStyle = '#000';
+    dc.fillStyle = '#EEE';
+    dc.strokeRect(0,0,bw,bw);
+    dc.fillRect(0,0,bw,bw);
+    if (!state) {
+      dc.fillStyle = '#000';
+      dc.beginPath();
+      dc.moveTo(bw*.25,bw*.25);
+      dc.lineTo(bw*.9,bw/2);
+      dc.lineTo(bw*.25,bw*.75);
+      dc.closePath();
+      dc.fill();
+    }
+    else {
+      dc.fillStyle = '#000';
+      dc.fillRect(bw/6+bw/12,bw*.25,bw/6,bw/2);
+      dc.fillRect(4*bw/6-bw/12,bw*.25,bw/6,bw/2);
+    }
+  dc.restore();
+}
+
+$().ready(function() {
+
+      var canv = document.getElementById("canv");
+      canv.width = 400;
+      canv.height = 400;
+      var dc = canv.getContext('2d');
+      var w = 400;
+      var h = 400;
+      refresh(dc,w,h,0);        drawPlayButton(dc,400,400,false);
+        pstate = false;
+        fctr = 0;
+        $('#canv').mousedown(function(e)
+        {
+            e.preventDefault();
+            var ofst = $(this).offset();
+            var first = e;
+            if ("touches" in e.originalEvent) {
+              first = e.originalEvent.touches[0];
+            }
+            var px = first.pageX - ofst.left;
+            var py = first.pageY - ofst.top;
+            if (px >= 4 && px <= 20 && py >= 400-20 && py <= 400) {
+              pstate = !pstate;
+              console.log("Push " + pstate);
+              if (pstate) {
+                ih = setInterval(function() {
+                  fctr += 1;
+                  refresh(dc,w,h,fctr);
+                  drawPlayButton(dc,w,h,true);
+                }, 1000 / 10);
+              } else {
+                clearInterval(ih);
+                refresh(dc,w,h,fctr);
+                drawPlayButton(dc,w,h,false);
+              }
+            }
+        });});
+
+</script>
+<style>
+body,div,p { font-family: futura,gotham,arial,helvetica,sans-serif; }
+h1 { text-align: center; } 
+canvas.cframe { border: 1px solid #444; }
+div.ex { text-align: center; }
+</style>
+</head>
+<body>
+<div class="outercontainer">
+<h1>Basic Animation Skeleton</h1>
+
+<div class="ex">
+<canvas class="cframe" id="canv" />
+</div>
+
+</div>
+</body>
+</html>
