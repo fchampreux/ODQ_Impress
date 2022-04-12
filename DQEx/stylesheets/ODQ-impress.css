@@ -179,8 +179,8 @@ a:focus {
 
 /* Special fonts */
 @font-face {
-    font-family: URWGothic;
-    src: url(/fonts/URWGothicBook.ttf);
+    font-family: URWGothicBook;
+    src: url('../fonts/URWGothicBook.ttf');
 }
 
 /* Presentation styles */
@@ -308,6 +308,8 @@ h1 {
     font-size: 70px;
     line-height: 80px;
     margin-top: 100px;
+    font-family: URWGothicBook;
+    color: #4f81bd;
 }
 
 h2 {

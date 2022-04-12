@@ -1,0 +1,109 @@
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=1024" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <title>Data Quality Executive</title>
+
+      <meta name="description" content="Data Quality Executive is a metadata governance solution that drives and monitors automatic data validation, loading and assessment." />
+      <meta name="author" content="Frédéric Champreux" />
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+      <link href="../impress.js/css/impress-common.css" rel="stylesheet" />
+      <link href="stylesheets/ODQ-impress.css" rel="stylesheet" />
+
+      <link rel="shortcut icon" href="favicon.png" />
+      <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+      <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1> Test dqa fonts </h1>
+    </div>
+
+    <div id="svgContainer">
+    </div>
+    <div>
+      <img src="images/library/DQEx-domains-400.png" class="illustration" width="250px">
+    </div>
+  </body>
+  <script>
+    var width = 600;
+    var height = 600;
+    //Create SVG element
+    var svg = d3.select("#svgContainer")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+    var group = svg.append("g").attr("transform", "translate(200, 200)");
+    //Append circle - Cercle bleu extérieur
+    group.append("circle")
+       .attr("cx", 200)
+       .attr("cy", 200)
+       .attr("r", 200)
+       .attr("fill", "#4f81bd");
+    //Append circle - Cercle blanc extérieur
+    group.append("circle")
+      .attr("cx", 200)
+      .attr("cy", 200)
+      .attr("r", 185)
+      .attr("fill", "#ffffff");
+    //Append circle - Cercle bleu intérieur
+    group.append("circle")
+      .attr("cx", 200)
+      .attr("cy", 200)
+      .attr("r", 170)
+      .attr("fill", "#4f81bd");
+    //Append circle - Cercle blanc intérieur
+    group.append("circle")
+      .attr("cx", 200)
+      .attr("cy", 200)
+      .attr("r", 110)
+      .attr("fill", "#ffffff");
+    //Append circle - Cercle vert intérieur
+    group.append("circle")
+      .attr("cx", 200)
+      .attr("cy", 200)
+      .attr("r", 95)
+      .attr("fill", "#217867");
+    // Add title
+    group.append("text")
+      .attr("dx",112)
+      .attr("dy",200)
+      .attr("fill", "#ffffff")
+      .text("Open Data Quality");
+    //Rectangle supérieur
+    group.append("rect")
+       .attr("x", 195)
+       .attr("y", 20)
+       .attr("width", 15)
+       .attr("height", 80)
+       .attr("fill", "#ffffff");
+    //Rectangle inférieur
+    group.append("rect")
+       .attr("x", 195)
+       .attr("y", 300)
+       .attr("width", 15)
+       .attr("height", 80)
+       .attr("fill", "#ffffff");
+    //Rectangle gauche
+    group.append("rect")
+       .attr("x", 20)
+       .attr("y", 195)
+       .attr("width", 80)
+       .attr("height", 15)
+       .attr("fill", "#ffffff");
+    //Rectangle droit
+    group.append("rect")
+       .attr("x", 300)
+       .attr("y", 195)
+       .attr("width", 80)
+       .attr("height", 15)
+       .attr("fill", "#ffffff");
+
+  </script>
+
+</html>
