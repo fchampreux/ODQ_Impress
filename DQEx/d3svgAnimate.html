@@ -1,0 +1,74 @@
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=1024" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <title>Data Quality Executive</title>
+
+      <meta name="description" content="Data Quality Executive is a metadata governance solution that drives and monitors automatic data validation, loading and assessment." />
+      <meta name="author" content="Frédéric Champreux" />
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+      <link href="../impress.js/css/impress-common.css" rel="stylesheet" />
+      <link href="stylesheets/ODQ-impress.css" rel="stylesheet" />
+
+      <link rel="shortcut icon" href="favicon.png" />
+      <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+      <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1> Test dqa fonts </h1>
+    </div>
+
+    <div id="svgContainer">
+    </div>
+    <div>
+      <img src="images/library/DQEx-domains-400.png" class="illustration" width="250px">
+    </div>
+  </body>
+  <script>
+    var width = 600,
+        height = 600,
+        radius = Math.min(width, height) / 2;
+    var data = [1];
+    //Create SVG element
+    var svg = d3.select("#svgContainer")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+    var group = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+    // Generate the pie
+    var pie = d3.pie();
+
+    // Generate the arcs
+    var arc = d3.arc()
+       .outerRadius(radius)
+       .innerRadius(0);
+
+   //Generate groups
+    var arcs = group.selectAll(".arc")
+        .data(pie(data))
+        .enter()
+        .append("g")
+        .attr("class", "arc");
+
+    //Draw arc paths
+    arcs.append("path")
+        .attr("fill", "#4f81bd")
+        .attr("d", arc);
+
+    arcs.selectAll("path")
+					.transition()
+          .delay(0)
+          .duration(500)
+          .attr("fill", "#ffffff");
+
+
+  </script>
+
+</html>

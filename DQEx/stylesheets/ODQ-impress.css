@@ -295,6 +295,20 @@ a:focus {
   text-align: right;
 }
 
+.arc text {
+   font: 12px arial;
+   text-anchor: middle;
+}
+
+.arc path {
+   stroke: #fff;
+}
+
+.label {
+   fill: green;
+   font-weight: italic;
+}
+
 q {
   display: block;
   font-size: 50px;

@@ -39,6 +39,13 @@
                 .attr("width", width)
                 .attr("height", height);
     var group = svg.append("g").attr("transform", "translate(200, 200)");
+
+    // Generate the arcs
+    var arc = d3.arc()
+                .outerRadius(100)
+                .innerRadius(90)
+                .startAngle(Math.PI / 4)
+                .endAngle(Math.PI / 2);
     //Append circle - Cercle bleu extérieur
     group.append("circle")
        .attr("cx", 200)
@@ -103,7 +110,20 @@
        .attr("width", 80)
        .attr("height", 15)
        .attr("fill", "#ffffff");
-
+    //Draw arc paths
+    group.append("path")
+       .attr("id", "wavy")
+       .attr("class", "arc")
+       .attr("d", arc)
+       .attr("fill", "none")
+       .attr("stroke", "#AAAAAA");
+       //Create an SVG text element and append a textPath element
+       group.append("text")
+          .append("textPath") //append a textPath to the text element
+           .attr("xlink:href", "#wavy") //place the ID of the path here
+           .style("text-anchor","middle") //place the text halfway on the arc
+           .attr("startOffset", "50%")
+           .text("Yay, my text is on a wavy path");
   </script>
 
 </html>
