@@ -31,8 +31,8 @@
     </div>
   </body>
   <script>
-    var width = 1200,  //Canevas dimension
-        height = 800;
+    var width = 400,  //Canevas dimension
+        height = 400;
     var circles = [   // List of circles to draw
         {"id": "1", "radius": 200, "start": 0,    "color": "#4f81bd"},
         {"id": "2", "radius": 185, "start": 0.3,  "color": "#ffffff"},
@@ -47,16 +47,16 @@
         {"id": "4", "x": 300, "y": 195, "width": 80, "height": 15}
     ];
     var labels = [   // List of labels to lay on curved paths
-        {"label": "Data governance", "radius": 185},
-        {"label": "Metadata",        "radius": 170},
-        {"label": "Knowledge base",  "radius": 170},
-        {"label": "Data validation", "radius": 110},
-        {"label": "Asset valuation", "radius": 95}
+        {"label": "Data governance", "radius": 138, "start": 0.048},
+        {"label": "Metadata",        "radius": 148, "start": 0.62},
+        {"label": "Knowledge base",  "radius": 125, "start": 0.53},
+        {"label": "Data validation", "radius": 138, "start": 1.05},
+        {"label": "Asset valuation", "radius": 138, "start": 1.55}
     ];
     var title = [
-        {"word": "Data",      "x": 600, "y":  380},
-        {"word": "Quality",   "x": 600, "y":  400},
-        {"word": "Executive", "x": 600, "y":  420}
+        {"word": "Data",      "x": 200, "y":  160},
+        {"word": "Quality",   "x": 200, "y":  200},
+        {"word": "Executive", "x": 200, "y":  240}
     ];
 
     //Create SVG element
@@ -65,20 +65,6 @@
                 .attr("width", width)
                 .attr("height", height);
 
-   //Generate groups
-    var groups = svg.selectAll("g")
-                    .data(circles)
-                    .enter().append("g")
-                    .attr("class", "arc")
-                    .attr("transform", "translate(" + width / 1.5 + "," + height / 2 + ")");
-
-   //Generate limits
-   var limits = svg.selectAll("g.rect")
-                   .data(rectangles)
-                   .enter().append("g")
-                   .attr("class", "rect")
-                   .attr("transform", "translate(" + width / 2 + "," + height / 4 + ")");
-
     // Define arcs
     var arc = d3.arc()
                 .outerRadius(function(d) { return d.radius; })
@@ -86,50 +72,70 @@
                 .startAngle(function(d) { return d.start * Math.PI; })
                 .endAngle(function(d) { return d.start * Math.PI + 2 * Math.PI; });
 
-  /*  // Add the paths to the groups
-    groups.selectAll("g.path")
-                .data(circles)
-                .enter().append("path")
+   //Generate groups
+    var circleGroups = svg.selectAll("g.arc")
+                          .data(circles)
+                          .enter().append("g")
+                          .attr("class", "arc")
+                          .attr("transform", "translate(200,200)");
+
+    //Generate limits
+    var limitGroups = svg.selectAll("g.rect")
+                         .data(rectangles)
+                         .enter().append("g")
+                         .attr("class", "rect")
+                         .attr("transform", "translate(0,0)");
+
+    //Generate paths
+    var titleGroups = svg.selectAll("g.path")
+                         .data(labels)
+                         .enter().append("g")
+                         .attr("class", "path")
+                         .attr("transform", "translate(200, 200)");
+
+    //Generate paths
+    var drawingTitle = svg.selectAll("g.text")
+                          .data(title)
+                          .enter().append("g")
+                          .attr("class", "text")
+                          .attr("transform", "translate(0,0)");
+
+    // Add the arcs to the groups
+    circleGroups.append("path")
                 .attr("d", arc)
-                .attr("fill", function(d) { return d.color; });*/
+                .attr("fill", function(d) { return d.color; });
 
-    // Add the rectangles to the limits
-    limits.selectAll("g.rect")
-          .data(rectangles)
-          .enter().append("rect")
-          .attr("x", function(d) { return d.x; })
-          .attr("y", function(d) { return d.y; })
-          .attr("width", function(d) { return d.width; })
-          .attr("height", function(d) { return d.height; })
-          .attr("fill", "#ffffff");
+    // Add the limits to the groups
+    limitGroups.append("rect")
+               .attr("x", function(d) { return d.x; })
+               .attr("y", function(d) { return d.y; })
+               .attr("width", function(d) { return d.width; })
+               .attr("height", function(d) { return d.height; })
+               .attr("fill", "#ffffff");
 
-    //Draw arc paths
-    groups.append("path")
-       .attr("id", "wavy")
-       .attr("class", "arc")
-       .attr("d", arc)
-       .attr("fill", "none")
-       .attr("stroke", "#AAAAAA");
+    // Add the paths to the title groups
+    titleGroups.append("path")
+                .attr("class", "arcPath")
+                .attr("id", function(d,i) { return "arcTitle" + i; })
+                .attr("d", arc)
+                .attr("fill", "none");
 
+    // Add the labels on the paths
+    titleGroups.append("text")
+                .attr("class", "pathLabel")
+                .append("textPath")
+                .attr("xlink:href", function(d,i) { return "#arcTitle" + i; })
+                .text(function(d) { return d.label; });
 
-     // Add title
-       groups.selectAll("g.text")
-         .data(title)
-         .enter().append("text")
-         .attr("x", function(d) { return d.x; })
-         .attr("y", function(d) { return d.y; })
-         .attr("fill", "#55aacc")
-         .attr("stroke-width", 6)
-         .attr('text-anchor', 'middle')
-         .text(function(d) { return d.word; });
+    // Add title
+    drawingTitle.append("text")
+                .attr("x", function(d) { return d.x; })
+                .attr("y", function(d) { return d.y; })
+                .attr("class", "drawingTitle")
+                .attr("stroke-width", 6)
+                .attr('text-anchor', 'middle')
+                .text(function(d) { return d.word; });
 
-       //Create an SVG text element and append a textPath element
-       groups.append("text")
-          .append("textPath") //append a textPath to the text element
-           .attr("xlink:href", "#wavy") //place the ID of the path here
-           .style("text-anchor","middle") //place the text halfway on the arc
-           .attr("startOffset", "50%")
-           .text("Yay, my text is on a wavy path");
   </script>
 
 </html>

@@ -240,6 +240,12 @@ a:focus {
     font-weight: bold;
 }
 
+.pathLabel {
+  fill: #ffffff;
+  font-size: 22px;
+  font-weight: bold;
+}
+
 .page-nb {
   color: #217867;
   font-size: 20px;
@@ -307,6 +313,11 @@ a:focus {
 .label {
    fill: green;
    font-weight: italic;
+}
+
+.drawingTitle {
+     fill: white;
+     font-size: 36px;
 }
 
 q {
