@@ -71,6 +71,7 @@ function buildArcs() {
 
 }
         function selectArcs() {
+          console.log(d3.selectAll("g.arc > path"));
             d3.selectAll("g.arc > path")
                 .each(arcTween);
         }

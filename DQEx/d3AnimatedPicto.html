@@ -98,7 +98,7 @@
                           .data(title)
                           .enter().append("g")
                           .attr("class", "text")
-                          .attr("transform", "translate(0,0)");
+                          .attr("transform", "translate(0,-5)");
 
     // Add the arcs to the groups
     circleGroups.append("path")
@@ -115,7 +115,6 @@
 
     // Add the paths to the title groups
     titleGroups.append("path")
-                .attr("class", "arcPath")
                 .attr("id", function(d,i) { return "arcTitle" + i; })
                 .attr("d", arc)
                 .attr("fill", "none");
@@ -135,6 +134,33 @@
                 .attr("stroke-width", 6)
                 .attr('text-anchor', 'middle')
                 .text(function(d) { return d.word; });
+
+//selectArcs();
+
+    // Animation
+    function selectArcs() {
+          console.log(d3.selectAll("g.arc > path"));
+            d3.selectAll("g.arc > path")
+              .each(arcTween);
+    }
+
+    function arcTween(){
+        console.log("This element: " + this);
+        d3.select(this)
+            .transition().duration(3000)
+            .attrTween("d", tweenArc({ start : 0 }));
+    }
+
+    function tweenArc(b) {
+        return function(a) {
+            var i = d3.interpolate(a, b);
+            for (var key in b) a[key] = b[key]; // update data
+            return function(t) {
+                return arc(i(t));
+            };
+        };
+    }
+
 
   </script>
 
