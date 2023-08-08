@@ -633,7 +633,7 @@
       </table>
     </div>
 
-    <div id="what2" class="step" data-x="-32000" data-y="0" data-autoplay="30s">
+    <div id="what2" class="step" data-x="-32000" data-y="0" data-autoplay="60">
      <h1 class="header">
        4.3 Gouvernance
        <p> &nbsp </p>
@@ -1750,18 +1750,19 @@ if ("ontouchstart" in document.documentElement) {
       {"id": "3", "x":  20, "y": 195, "width": 80, "height": 15},
       {"id": "4", "x": 300, "y": 195, "width": 80, "height": 15}
   ];
-  var labels = [   // List of labels to lay on curved paths
-      {"label": "Data governance", "radius": 138, "start": 8,    "end": 90},
-      {"label": "Metadata",        "radius": 135, "start": 158,  "end": 90},
-      {"label": "Knowledge base",  "radius": 158, "start": 168,  "end": 90},
-      {"label": "Data validation", "radius": 148, "start": 255,  "end": 180},
-      {"label": "Asset valuation", "radius": 138, "start": 282,  "end": 360}
-  ];
-  var title = [
-      {"word": "Data",      "x": 200, "y":  160},
-      {"word": "Quality",   "x": 200, "y":  200},
-      {"word": "Executive", "x": 200, "y":  240}
-  ];
+    var labels = [   // List of labels to lay on curved paths
+        {"label": "Data",            "radius": 148, "start": 33,    "end": 90},
+        {"label": "management",      "radius": 125, "start": 13,    "end": 90},
+        {"label": "Metadata",        "radius": 135, "start": 158,  "end": 90},
+        {"label": "Knowledge base",  "radius": 158, "start": 168,  "end": 90},
+        {"label": "Data validation", "radius": 148, "start": 255,  "end": 180},
+        {"label": "Asset valuation", "radius": 138, "start": 282,  "end": 360}
+    ];
+    var title = [
+        {"word": "Data",       "x": 200, "y":  165},
+        {"word": "Governance", "x": 200, "y":  210},
+        {"word": "Executive",  "x": 200, "y":  255}
+    ];
 
   //Create SVG element
   var svg = d3.select("#svgContainer")
