@@ -21,7 +21,7 @@
   </head>
   <body>
     <div>
-      <h1> Test dqa fonts </h1>
+      <h1>  </h1>
     </div>
 
     <div id="svgContainer">
@@ -47,16 +47,17 @@
         {"id": "4", "x": 300, "y": 195, "width": 80, "height": 15}
     ];
     var labels = [   // List of labels to lay on curved paths
-        {"label": "Data governance", "radius": 138, "start": 8,    "end": 90},
+        {"label": "Data",            "radius": 148, "start": 33,    "end": 90},
+        {"label": "management",      "radius": 125, "start": 13,    "end": 90},
         {"label": "Metadata",        "radius": 135, "start": 158,  "end": 90},
         {"label": "Knowledge base",  "radius": 158, "start": 168,  "end": 90},
         {"label": "Data validation", "radius": 148, "start": 255,  "end": 180},
         {"label": "Asset valuation", "radius": 138, "start": 282,  "end": 360}
     ];
     var title = [
-        {"word": "Data",      "x": 200, "y":  160},
-        {"word": "Quality",   "x": 200, "y":  200},
-        {"word": "Executive", "x": 200, "y":  240}
+        {"word": "Data",       "x": 200, "y":  165},
+        {"word": "Governance", "x": 200, "y":  210},
+        {"word": "Executive",  "x": 200, "y":  255}
     ];
 
     //Create SVG element
@@ -135,7 +136,7 @@
                 .attr('text-anchor', 'middle')
                 .text(function(d) { return d.word; });
 
-//selectArcs();
+selectArcs();
 
     // Animation
     function selectArcs() {
@@ -145,17 +146,20 @@
     }
 
     function arcTween(){
+
         d3.select(this)
             .transition().duration(3000)
-            .attrTween("d", tweenArc({ end : 360 }));
+            .attrTween("d", tweenArc());
     }
 
-    function tweenArc(b) {
-        return function(a) {
-            var i = d3.interpolate(a, b);
-            for (var key in b) a[key] = b[key]; // update data
+    function tweenArc() {
+        return function(d) {
+            var interpolate = d3.interpolate(d.start, d.end);
+            /*for (var key in b) a[key] = b[key]; // update data*/
+            console.log(d.start,d.end)
             return function(t) {
-                return arc(i(t));
+                d.end = interpolate(t);
+                return arc(d);
             };
         };
     }
@@ -163,17 +167,6 @@
 //growArcs()
 
     // Animation
-    function growArcs() {
-            svg.selectAll("g.arc > path")
-            .transition().duration(3000)
-            .attrTween("d", function(d,i) {
-            var interpolate = d3.interpolate(d.end, 0);
-            return function(t) {
-                arc.endAngle(interpolate(t));
-                return arc();
-            };
-        });
-    }
 
 
   </script>
